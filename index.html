@@ -3,63 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamBuzz</title>
+    <title>StreamBuzz - Free Movies & Series</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <img src="assets/logo.png" alt="StreamBuzz Logo" class="logo">
-        <h1>StreamBuzz</h1>
-        <input type="text" id="searchBar" placeholder="Search movies..." onkeyup="filterMovies()">
-        <div class="genres">
-            <button onclick="filterGenre('all')">All</button>
-            <button onclick="filterGenre('Action')">Action</button>
-            <button onclick="filterGenre('Thriller')">Thriller</button>
-            <button onclick="filterGenre('Family')">Family</button>
-            <button onclick="filterGenre('Crime')">Crime</button>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">StreamBuzz</h1>
+            <nav class="main-nav">
+                <a href="#">Home</a>
+                <a href="#">Genres</a>
+                <a href="#">Latest</a>
+                <a href="#">About</a>
+                <input type="text" id="search" placeholder="Search..." onkeyup="searchMovies()">
+            </nav>
         </div>
-        <button onclick="toggleLogin()">Login / Signup</button>
     </header>
 
-    <main>
-        <section id="movieGallery" class="gallery">
-            <div class="card" data-title="Mirzapur" data-genre="Action">
+    <main class="container">
+        <div id="movieGrid" class="movie-grid">
+            <div class="movie-card" data-title="Mirzapur" data-genre="Action">
                 <img src="assets/mirzapur.jpg" alt="Mirzapur">
-                <h3>Mirzapur</h3>
-                <iframe src="https://www.youtube.com/embed/ZNeGF-PvRHY" frameborder="0" allowfullscreen></iframe>
+                <h3>Mirzapur (2020)</h3>
+                <p>Action, Crime, Thriller</p>
+                <a href="https://drive.google.com/file/d/1Sz6q_Ng7VC3rUQYuZiXlsRPqqNiAF-Pa/preview" target="_blank" class="download-btn">Download</a>
             </div>
-            <div class="card" data-title="Gullak" data-genre="Family">
+            <div class="movie-card" data-title="Gullak" data-genre="Family">
                 <img src="assets/gullak.jpg" alt="Gullak">
-                <h3>Gullak</h3>
-                <iframe src="https://drive.google.com/file/d/1Sz6q_Ng7VC3rUQYuZiXlsRPqqNiAF-Pa/preview" frameborder="0" allowfullscreen></iframe>
+                <h3>Gullak (2019)</h3>
+                <p>Drama, Family</p>
+                <a href="https://drive.google.com/file/d/1__H8fgryyM6nYAkzixVvjQ6PRqLQJ8YB/preview" target="_blank" class="download-btn">Download</a>
             </div>
-            <div class="card" data-title="Asur" data-genre="Thriller">
+            <div class="movie-card" data-title="Asur" data-genre="Thriller">
                 <img src="assets/asur.jpg" alt="Asur">
-                <h3>Asur</h3>
-                <iframe src="https://www.youtube.com/embed/YoHD9XEInc0" frameborder="0" allowfullscreen></iframe>
+                <h3>Asur (2020)</h3>
+                <p>Mystery, Thriller</p>
+                <a href="https://www.youtube.com/embed/YoHD9XEInc0" target="_blank" class="download-btn">Watch Trailer</a>
             </div>
-            <div class="card" data-title="Sacred Games" data-genre="Crime">
-                <img src="assets/sacred.jpg" alt="Sacred Games">
-                <h3>Sacred Games</h3>
-                <iframe src="https://drive.google.com/file/d/1__H8fgryyM6nYAkzixVvjQ6PRqLQJ8YB/preview" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 StreamBuzz. All rights reserved.</p>
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 StreamBuzz. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="toggleLogin()">&times;</span>
-            <h2>Login / Signup</h2>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button>Submit</button>
-        </div>
-    </div>
+    <script>
+    function searchMovies() {
+        let input = document.getElementById('search').value.toLowerCase();
+        let cards = document.querySelectorAll('.movie-card');
+        cards.forEach(card => {
+            let title = card.dataset.title.toLowerCase();
+            card.style.display = title.includes(input) ? 'block' : 'none';
+        });
+    }
+    </script>
 </body>
 </html>
