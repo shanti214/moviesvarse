@@ -1,63 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamBuzz - Free Movies & Series</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreamBuzz - Watch Movies & Series Free</title>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <h1 class="logo">StreamBuzz</h1>
-            <nav class="main-nav">
-                <a href="#">Home</a>
-                <a href="#">Genres</a>
-                <a href="#">Latest</a>
-                <a href="#">About</a>
-                <input type="text" id="search" placeholder="Search..." onkeyup="searchMovies()">
-            </nav>
-        </div>
-    </header>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">🎬 StreamBuzz</h1>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="pages/genres.html">Genres</a>
+        <a href="pages/about.html">About</a>
+        <a href="pages/contact.html">Contact</a>
+        <a href="pages/privacy.html">Privacy</a>
+        <input type="text" id="search" placeholder="Search..." onkeyup="searchMovies()"/>
+        <button onclick="toggleMode()">🌓</button>
+        <a href="pages/login.html" class="login-btn">Login</a>
+      </nav>
+    </div>
+  </header>
 
-    <main class="container">
-        <div id="movieGrid" class="movie-grid">
-            <div class="movie-card" data-title="Mirzapur" data-genre="Action">
-                <img src="assets/mirzapur.jpg" alt="Mirzapur">
-                <h3>Mirzapur (2020)</h3>
-                <p>Action, Crime, Thriller</p>
-                <a href="https://drive.google.com/file/d/1Sz6q_Ng7VC3rUQYuZiXlsRPqqNiAF-Pa/preview" target="_blank" class="download-btn">Download</a>
-            </div>
-            <div class="movie-card" data-title="Gullak" data-genre="Family">
-                <img src="assets/gullak.jpg" alt="Gullak">
-                <h3>Gullak (2019)</h3>
-                <p>Drama, Family</p>
-                <a href="https://drive.google.com/file/d/1__H8fgryyM6nYAkzixVvjQ6PRqLQJ8YB/preview" target="_blank" class="download-btn">Download</a>
-            </div>
-            <div class="movie-card" data-title="Asur" data-genre="Thriller">
-                <img src="assets/asur.jpg" alt="Asur">
-                <h3>Asur (2020)</h3>
-                <p>Mystery, Thriller</p>
-                <a href="https://www.youtube.com/embed/YoHD9XEInc0" target="_blank" class="download-btn">Watch Trailer</a>
-            </div>
-        </div>
-    </main>
+  <main class="container">
+    <div id="movieGrid" class="movie-grid">
+      <div class="movie-card" data-title="Animal" data-genre="Action">
+        <img src="assets/animal.jpg" alt="Animal"/>
+        <h3>Animal (2023)</h3>
+        <p>Action, Thriller</p>
+        <a href="https://www.youtube.com/embed/f4nrHU1K7bU" class="download-btn" target="_blank">Watch Trailer</a>
+      </div>
+      <div class="movie-card" data-title="12th Fail" data-genre="Drama">
+        <img src="assets/12thfail.jpg" alt="12th Fail"/>
+        <h3>12th Fail (2023)</h3>
+        <p>Drama, Biography</p>
+        <a href="https://www.youtube.com/embed/ko_PaXabJ-k" class="download-btn" target="_blank">Watch Trailer</a>
+      </div>
+      <div class="movie-card" data-title="Asur" data-genre="Mystery">
+        <img src="assets/asur.jpg" alt="Asur"/>
+        <h3>Asur (2020)</h3>
+        <p>Mystery, Thriller</p>
+        <a href="https://www.youtube.com/embed/YoHD9XEInc0" class="download-btn" target="_blank">Watch Trailer</a>
+      </div>
+    </div>
+  </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 StreamBuzz. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 StreamBuzz. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <script>
-    function searchMovies() {
-        let input = document.getElementById('search').value.toLowerCase();
-        let cards = document.querySelectorAll('.movie-card');
-        cards.forEach(card => {
-            let title = card.dataset.title.toLowerCase();
-            card.style.display = title.includes(input) ? 'block' : 'none';
-        });
-    }
-    </script>
+  <script>
+  function searchMovies() {
+    let input = document.getElementById('search').value.toLowerCase();
+    let cards = document.querySelectorAll('.movie-card');
+    cards.forEach(card => {
+      let title = card.dataset.title.toLowerCase();
+      card.style.display = title.includes(input) ? 'block' : 'none';
+    });
+  }
+  function toggleMode() {
+    document.body.classList.toggle('light-mode');
+  }
+  </script>
 </body>
 </html>
